@@ -18,6 +18,7 @@ public class CommandButtonsView : MonoBehaviour
 
 	private void Start()
 	{
+		Debug.Log(10);
 		_buttonsByExecutorType = new Dictionary<Type, GameObject>();
 		_buttonsByExecutorType
 		.Add(typeof(CommandExecutorBase<IAttackCommand>), _attackButton);
@@ -29,6 +30,7 @@ public class CommandButtonsView : MonoBehaviour
 		.Add(typeof(CommandExecutorBase<IStopCommand>), _stopButton);
 		_buttonsByExecutorType
 		.Add(typeof(CommandExecutorBase<IProduceUnitCommand>), _produceUnitButton);
+		Debug.Log(11);
 	}
 
 	public void BlockInteractions(ICommandExecutor ce)

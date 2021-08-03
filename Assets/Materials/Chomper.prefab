@@ -3052,7 +3052,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 7a0631dc3dddfe04eb257cf1428c7c62, type: 3}
+  _pivotPoint: {fileID: 378826489573216597}
 --- !u!114 &378826489573051746
 MonoBehaviour:
   m_ObjectHideFlags: 0
