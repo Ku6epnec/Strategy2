@@ -6,6 +6,7 @@ public class CommandButtonsPresenter : MonoBehaviour
 {
     [SerializeField] private SelectableValue _selectable;
     [SerializeField] private CommandButtonsView _view;
+    [SerializeField] private AssetsContext _context;
 
     [Inject] private CommandButtonsModel _model;
 
@@ -13,6 +14,7 @@ public class CommandButtonsPresenter : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log(1);
         _view.OnClick += _model.OnCommandButtonClicked;
         _model.OnCommandSent += _view.UnblockAllInteractions;
         _model.OnCommandCancel += _view.UnblockAllInteractions;
@@ -25,6 +27,7 @@ public class CommandButtonsPresenter : MonoBehaviour
 
     private void onSelected(ISelecatable selectable)
     {
+        Debug.Log(2);
         if (_currentSelectable == selectable)
         {
             return;

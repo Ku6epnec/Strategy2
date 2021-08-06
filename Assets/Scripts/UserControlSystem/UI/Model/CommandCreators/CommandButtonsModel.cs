@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Zenject;
 
 public class CommandButtonsModel
@@ -25,11 +26,20 @@ public class CommandButtonsModel
 		OnCommandAccepted?.Invoke(commandExecutor);
 
 		_unitProducer.ProcessCommandExecutor(commandExecutor, command => executeCommandWrapper(commandExecutor, command));
+		AsyncPending();
+
 		_attacker.ProcessCommandExecutor(commandExecutor, command => executeCommandWrapper(commandExecutor, command));
 		_stopper.ProcessCommandExecutor(commandExecutor, command => executeCommandWrapper(commandExecutor, command));
 		_mover.ProcessCommandExecutor(commandExecutor, command => executeCommandWrapper(commandExecutor, command));
 		_patroller.ProcessCommandExecutor(commandExecutor, command => executeCommandWrapper(commandExecutor, command));
 	}
+
+	private async void AsyncPending()
+    {
+		_commandIsPending = true;
+		await Task.Delay(5000);
+		_commandIsPending = false;
+    }
 
 	public void executeCommandWrapper(ICommandExecutor commandExecutor, object command)
 	{
